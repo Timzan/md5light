@@ -1,6 +1,7 @@
 ## Требования
 
 **Python 3.7+**
+
 **Framework: FastAPI**
 
 ## Установка
