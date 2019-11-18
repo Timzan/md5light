@@ -93,7 +93,7 @@ GET запрос на http://127.0.0.1:8000/check/{status_id} .Где status_id 
 ```JSON
 {
 	"md5_checksum": "some_md5sum",
-	"status": "failed",
+	"status": "done",
 	"url": "http://site.com/example.pdf"
 }
 ```
