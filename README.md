@@ -32,7 +32,7 @@ PORT = 587
 Запуск сервера:
 
 ```bash
-python manage.py
+python main.py
 ```
 
 Или:
