@@ -50,18 +50,6 @@ async def md5_checker(url, status_id, email=None):
         checksum_query = checksums.update().where(checksums.c.status_id == status_id).values(checksum=md5_checksum,
                                                                                              status="done")
         await database.execute(checksum_query)
-    except requests_async.exceptions.HTTPError:
-        query = checksums.update().where(checksums.c.status_id == status_id).values(status="failed")
-        await database.execute(query)
-    except requests_async.exceptions.ConnectionError:
-        query = checksums.update().where(checksums.c.status_id == status_id).values(status="failed")
-        await database.execute(query)
-    except requests_async.exceptions.Timeout:
-        query = checksums.update().where(checksums.c.status_id == status_id).values(status="failed")
-        await database.execute(query)
-    except requests_async.exceptions.RequestException:
-        query = checksums.update().where(checksums.c.status_id == status_id).values(status="failed")
-        await database.execute(query)
     except Exception as e:
         print(e)
         query = checksums.update().where(checksums.c.status_id == status_id).values(status="failed")
